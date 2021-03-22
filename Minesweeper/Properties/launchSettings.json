@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Minesweeper": {
+      "commandName": "Project",
+      "commandLineArgs": "feld1.txt feld1mogel.txt"
+    }
+  }
+}
