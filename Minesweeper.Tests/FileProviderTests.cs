@@ -13,16 +13,13 @@ namespace Minesweeper.Tests
         [Test]
         public void Should_Read_Input_File_Lines()
         {
-            // Arrange
             FileProvider provider = CreateProvider();
             string inputFilePath = "feld2.txt";
             string[] expectedResult = new string[] { "**...", ".....", ".*..." };
 
-            // Act
             IEnumerable<string> result = provider.ReadInputFileLines(
                 inputFilePath);
 
-            // Assert
             result.Should().BeEquivalentTo(expectedResult);
         }
 
@@ -42,12 +39,10 @@ namespace Minesweeper.Tests
                 // do nothing
             }
 
-            // Act
             provider.WriteStringToFile(
                 text,
                 outputFilePath);
 
-            // Assert
             File.ReadAllText(outputFilePath).Should().Be(text);
         }
     }

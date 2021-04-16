@@ -20,7 +20,6 @@ namespace Minesweeper.Tests
         [Test]
         public void Should_Create_Minesweeper_Field()
         {
-            // Arrange
             MinesweeperFieldCreator minesweeperFieldCreator = CreateMinesweeperFieldCreator();
             IEnumerable<string> textLines = new string[] { "**...", ".....", ".*..." };
             var expectedResult = new MinesweeperField();
@@ -52,11 +51,9 @@ namespace Minesweeper.Tests
                 }
             };
 
-            // Act
             MinesweeperField result = minesweeperFieldCreator.CreateMinesweeperField(
                 textLines);
 
-            // Assert
             result.Should().BeEquivalentTo(expectedResult);
         }
     }

@@ -10,22 +10,21 @@ namespace Minesweeper.Tests
         private CommandLineArg subCommandLineArg;
 
         [SetUp]
-        public void SetUp() => subCommandLineArg = new CommandLineArg("feld2.txt", "interactortests.txt");
+        public void SetUp() => subCommandLineArg = new CommandLineArg(
+            "feld2.txt",
+            "interactortests.txt");
 
-        private Interactor CreateInteractor() => new Interactor(
-                subCommandLineArg);
+        private Interactor CreateInteractor() => new Interactor();
 
         [Test]
         public void Should_Create_Mogelzettel_File()
         {
-            // Arrange
             Interactor interactor = CreateInteractor();
-            var expectedResult = new string[] { "**100", "33200", "1*100" };
+            string[] expectedResult = new string[] { "**100", "33200", "1*100" };
 
-            // Act
-            interactor.CreateMogelzettel();
+            interactor.CreateMogelzettel(
+                subCommandLineArg);
 
-            // Assert
             File.ReadAllLines("interactortests.txt").Should().BeEquivalentTo(expectedResult);
         }
     }

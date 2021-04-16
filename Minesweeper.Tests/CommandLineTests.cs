@@ -11,16 +11,13 @@ namespace Minesweeper.Tests
         [Test]
         public void Should_Create_CommandLineArgs_Object()
         {
-            // Arrange
             CommandLine commandLine = CreateCommandLine();
-            string[] args = new[] { "input.txt", "output.txt" };
-            var expectedResult = new CommandLineArg("input.txt", "output.txt");
+            string[] args = new[] { "input", "output" };
+            var expectedResult = new CommandLineArg("input", "output");
 
-            // Act
             CommandLineArg result = commandLine.GetCommandLineArgs(
                 args);
 
-            // Assert
             result.Should().Be(expectedResult);
         }
     }
